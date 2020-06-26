@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:usina_oliveira/app/ui/android/adicionar_cartao/adicionar_cartao_page.dart';
-import 'package:usina_oliveira/app/ui/android/agendar_contratacao/agendar_contratacao_page.dart';
 import 'package:usina_oliveira/app/ui/android/avaliacao_servico/avaliacao_servico_page.dart';
 import 'package:usina_oliveira/app/ui/android/cadastro_page/cadastro_page.dart';
 import 'package:usina_oliveira/app/ui/android/confirmacao_pagamento/confirmacao_pagamento.dart';
@@ -10,7 +9,6 @@ import 'package:usina_oliveira/app/ui/android/empresa/empresa_home/empresa_home_
 import 'package:usina_oliveira/app/ui/android/empresa/perfil_empresa/perfil_empresa_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/pesquisar_prestador/pesquisar_prestador_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/servicos_contratados_prestados/servicos_contratados_prestados_page.dart';
-import 'package:usina_oliveira/app/ui/android/empresa_home/empresa_home_page.dart';
 import 'package:usina_oliveira/app/ui/android/filtros/filtros_page.dart';
 import 'package:usina_oliveira/app/ui/android/login/login_page.dart';
 import 'package:usina_oliveira/app/ui/android/notificacoes/notificacoes_page.dart';
