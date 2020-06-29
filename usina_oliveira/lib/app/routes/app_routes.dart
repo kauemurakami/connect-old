@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
-import 'package:usina_oliveira/app/ui/android/adicionar_cartao/adicionar_cartao_page.dart';
 import 'package:usina_oliveira/app/ui/android/avaliacao_servico/avaliacao_servico_page.dart';
-import 'package:usina_oliveira/app/ui/android/cadastro_page/cadastro_page.dart';
+import 'package:usina_oliveira/app/ui/android/cadastro/adicionar_cartao/adicionar_cartao_page.dart';
+import 'package:usina_oliveira/app/ui/android/cadastro/cadastro_page/cadastro_page.dart';
 import 'package:usina_oliveira/app/ui/android/confirmacao_pagamento/confirmacao_pagamento.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/agendar_contratacao/agendar_contratacao_page.dart';
+import 'package:usina_oliveira/app/ui/android/empresa/cadastro_e_demanda_servicos/cadastro_demanda_servicos_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/editar_perfil/editar_perfil_empresa_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/empresa_home/empresa_home_page.dart';
+import 'package:usina_oliveira/app/ui/android/empresa/filtros/filtros_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/perfil_empresa/perfil_empresa_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/pesquisar_prestador/pesquisar_prestador_page.dart';
-import 'package:usina_oliveira/app/ui/android/empresa/servicos_contratados_prestados/servicos_contratados_prestados_page.dart';
-import 'package:usina_oliveira/app/ui/android/filtros/filtros_page.dart';
 import 'package:usina_oliveira/app/ui/android/login/login_page.dart';
 import 'package:usina_oliveira/app/ui/android/notificacoes/notificacoes_page.dart';
 import 'package:usina_oliveira/app/ui/android/pagamento/pagamento_page.dart';
@@ -33,7 +33,6 @@ class MyRoutes {
     GetPage(name: '/pagamento', page:()=> PagamentoPage()),
     GetPage(name: '/validar-certificacoes', page:()=> ValidarCertificacoesPage()),
     GetPage(name: '/notificacoes', page:()=> NotificacoesPage()),
-    GetPage(name: '/servicos-prestados-ou-contratados', page:()=> ServicosPrestadosEContratadosPage()),
     GetPage(name: '/avaliacao-servico', page:()=> AvaliacaoServicoPage()),
     GetPage(name: '/agendar-contratacao', page:()=> AgendarContratacaoPage()),
     GetPage(name: '/pesquisar-prestador', page:()=> PesquisarPrestadorPage()),
@@ -41,5 +40,6 @@ class MyRoutes {
     GetPage(name: '/perfil-empresa', page:()=> PerfilEmpresaPage()),
     GetPage(name: '/editar-perfil-empresa', page:()=> EditarPerfilEmpresaPage()),
     GetPage(name: '/editar-perfil-prestador', page:()=> EditarPerfilPrestadorPage()),
+    GetPage(name: '/cadastro-e-demandas', page:()=> CadastroDemandaServicosPage()),
   ];
 }

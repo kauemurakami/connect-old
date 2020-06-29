@@ -14,11 +14,7 @@ class EditarPerfilEmpresaPage extends StatelessWidget {
     appBar: AppBar(title: Text('EditarPerfilPage')),
 
     body: Container(
-      child: GetX<MyController>(
-        init: MyController(repository: repository),
-        builder: (_){
-          return Container();
-        }),
+      
       ),
     );
   }
