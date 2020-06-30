@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 import 'package:usina_oliveira/app/data/model/user.dart';
@@ -21,11 +22,24 @@ class LoginController extends GetxController {
   set obscure(value) => this._obscure.value = value;
 
   //verificar se é usuário comum ou admin
-  login() {}
-  
+  login() {
+      //this.user;
+      //verificar tipo usuario
+      /*
+      if(this.user.id == empresa........)
+      if(this.user.id == prestador........)
+      */
+      //Get.offAllNamed('/');
+
+      print('login');
+
+      //snackbar
+      print('erro ao salvar');
+
+  }
+
   //onChanged
   onChangeEmail(value) {
-    print('onchange');
     if (isEmail(value)) {
       this.isEmailCheck = true;
     } else

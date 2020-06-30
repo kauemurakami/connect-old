@@ -57,9 +57,10 @@ class LoginPage extends StatelessWidget {
                                 labelText: 'Email',
                                 suffixIcon: Icon(
                                   Icons.check_circle,
-                                  color: _.isEmailCheck ? Colors.green : Colors.grey,
+                                  color: _.isEmailCheck
+                                      ? Colors.green
+                                      : Colors.grey,
                                 )),
-                            
                             onChanged: (value) => _.onChangeEmail(value),
                             onSaved: (value) => _.onSavedEmail(value),
                             validator: (value) => _.emailValidate(value),
@@ -80,8 +81,8 @@ class LoginPage extends StatelessWidget {
                                     borderSide: BorderSide(color: Colors.grey)),
                                 labelText: 'Senha',
                                 suffixIcon: GestureDetector(
-                                  onLongPress: ()=> _.showPassword(),
-                                  onLongPressEnd: (details)=> _.showPassword(),
+                                  onLongPress: () => _.showPassword(),
+                                  onLongPressEnd: (details) => _.showPassword(),
                                   child: Icon(
                                     Icons.remove_red_eye,
                                   ),
@@ -97,20 +98,38 @@ class LoginPage extends StatelessWidget {
                                 const EdgeInsets.only(top: 24.0, bottom: 24.0),
                             child: Align(
                               alignment: Alignment.centerRight,
-                              child: Text(
-                                'Esqueceu sua senha?',
-                                style: textInfo,
+                              child: GestureDetector(
+                                onTap: () => Get.toNamed('recuperar-senha'),
+                                child: Text(
+                                  'Esqueceu sua senha?',
+                                  style: textInfo,
+                                ),
                               ),
                             ),
                           ),
-                          CustomButtonWidget(text: 'Entrar', callback: _.login),
+                          CustomButtonWidget(
+                              text: 'Entrar',
+                              callback: () {
+                                final FormState form = _formKey.currentState;
+                                if (form.validate()) {
+                                  form.save();
+                                  _.login();
+                                  Get.offAllNamed('/');
+                                } else {
+                                  //snackbar
+                                  print('erro ao entrar');
+                                }
+                              }),
                           Padding(
                             padding: const EdgeInsets.only(top: 32.0),
                             child: Align(
                               alignment: Alignment.center,
-                              child: Text(
-                                'Você não tem cadastro? Clique aqui',
-                                style: textInfo,
+                              child: GestureDetector(
+                                onTap: () => Get.toNamed('cadastro'),
+                                child: Text(
+                                  'Você não tem cadastro? Clique aqui',
+                                  style: textInfo,
+                                ),
                               ),
                             ),
                           ),

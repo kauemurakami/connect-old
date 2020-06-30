@@ -15,6 +15,7 @@ import 'package:usina_oliveira/app/ui/android/notificacoes/notificacoes_page.dar
 import 'package:usina_oliveira/app/ui/android/pagamento/pagamento_page.dart';
 import 'package:usina_oliveira/app/ui/android/prestador/editar_perfil_prestador/editar_perfil_prestador_page.dart';
 import 'package:usina_oliveira/app/ui/android/prestador/prestador_home/prestador_home_page.dart';
+import 'package:usina_oliveira/app/ui/android/recuperar_senha/recuperar_senha_page.dart';
 import 'package:usina_oliveira/app/ui/android/servicos_cadastrados/servicos_cadastrados_page.dart';
 import 'package:usina_oliveira/app/ui/android/splash/splash_page.dart';
 import 'package:usina_oliveira/app/ui/android/validar_certificacoes/validar_certificacoes.dart';
@@ -41,5 +42,6 @@ class MyRoutes {
     GetPage(name: '/editar-perfil-empresa', page:()=> EditarPerfilEmpresaPage()),
     GetPage(name: '/editar-perfil-prestador', page:()=> EditarPerfilPrestadorPage()),
     GetPage(name: '/cadastro-e-demandas', page:()=> CadastroDemandaServicosPage()),
+    GetPage(name: '/recuperar-senha', page:()=> RecuperarSenhaPage()),
   ];
 }
