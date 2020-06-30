@@ -2,12 +2,22 @@ import 'package:flutter/material.dart';
 
 final titulo = TextStyle(
   color: Colors.black,
-  fontSize: 24,
+  fontSize: 30,
   fontWeight: FontWeight.bold,
 );
 final descricao = TextStyle(
   color: Colors.grey
 );
-final textoInfo = TextStyle(
+final textInfo = TextStyle(
   color: Colors.black
+);
+final textButton = TextStyle(
+  color: Colors.white,
+  fontSize: 18,
+);
+final hintText = TextStyle(
+  fontSize: 16
+);
+final formText = TextStyle(
+
 );
