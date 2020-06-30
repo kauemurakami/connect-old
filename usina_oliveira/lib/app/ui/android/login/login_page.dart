@@ -7,9 +7,9 @@ import 'package:usina_oliveira/app/ui/android/widgets/button_custom_widget.dart'
 import 'package:usina_oliveira/app/ui/android/widgets/text_form_field_widget.dart';
 import 'package:usina_oliveira/app/ui/theme/app_text_theme.dart';
 import 'package:http/http.dart' as http;
-import 'package:validators/validators.dart';
 
 class LoginPage extends StatelessWidget {
+
 //repository injection
   final UserRepository repository =
       UserRepository(apiClient: ApiClient(httpClient: http.Client()));

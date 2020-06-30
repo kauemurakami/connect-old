@@ -10,6 +10,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputAction action;
   final TextInputType type;
   final bool obscure;
+  final TextEditingController controller;
 
   CustomTextFormField(
       {this.emailCheck,
@@ -20,11 +21,13 @@ class CustomTextFormField extends StatelessWidget {
       this.sufixIcon,
       this.action,
       this.type,
-      this.obscure = false});
+      this.obscure = false,
+      this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: this.controller,
       obscureText: this.obscure,
       style: TextStyle(fontSize: 18),
       keyboardType: this.type,
