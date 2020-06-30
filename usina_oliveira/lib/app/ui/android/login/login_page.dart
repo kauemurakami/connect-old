@@ -6,6 +6,7 @@ import 'package:usina_oliveira/app/data/repository/user_repository.dart';
 import 'package:usina_oliveira/app/ui/android/widgets/button_custom_widget.dart';
 import 'package:usina_oliveira/app/ui/theme/app_text_theme.dart';
 import 'package:http/http.dart' as http;
+import 'package:validators/validators.dart';
 
 class LoginPage extends StatelessWidget {
 //repository injection
@@ -38,7 +39,6 @@ class LoginPage extends StatelessWidget {
               ),
               SizedBox(height: MediaQuery.of(context).size.height / 10),
               GetX<LoginController>(
-                  autoRemove: false,
                   init: LoginController(repository: this.repository),
                   builder: (_) {
                     return Form(
@@ -57,8 +57,9 @@ class LoginPage extends StatelessWidget {
                                 labelText: 'Email',
                                 suffixIcon: Icon(
                                   Icons.check_circle,
-                                  color: _.isEmail ? Colors.green : Colors.grey,
+                                  color: _.isEmailCheck ? Colors.green : Colors.grey,
                                 )),
+                            
                             onChanged: (value) => _.onChangeEmail(value),
                             onSaved: (value) => _.onSavedEmail(value),
                             validator: (value) => _.emailValidate(value),
@@ -71,7 +72,7 @@ class LoginPage extends StatelessWidget {
                             style: TextStyle(fontSize: 18),
                             enableSuggestions: true,
                             keyboardType: TextInputType.text,
-                            obscureText: !_.obscure,
+                            obscureText: _.obscure,
                             cursorColor: Colors.green,
                             decoration: InputDecoration(
                                 //contentPadding: EdgeInsets.only(top: 5),
@@ -83,8 +84,6 @@ class LoginPage extends StatelessWidget {
                                   onLongPressEnd: (details)=> _.showPassword(),
                                   child: Icon(
                                     Icons.remove_red_eye,
-                                    color:
-                                        _.isEmail ? Colors.green : Colors.grey,
                                   ),
                                 )),
                             onSaved: (value) {

@@ -2,14 +2,15 @@ import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 import 'package:usina_oliveira/app/data/model/user.dart';
 import 'package:usina_oliveira/app/data/repository/user_repository.dart';
+import 'package:validators/validators.dart';
 
 class LoginController extends GetxController {
   final UserRepository repository;
   LoginController({@required this.repository}) : assert(repository != null);
 
   final _isEmail = false.obs;
-  get isEmail => this._isEmail.value;
-  set isEmail(value) => this._isEmail.value = value;
+  get isEmailCheck => this._isEmail.value;
+  set isEmailCheck(value) => this._isEmail.value = value;
 
   final _user = UserModel().obs;
   get user => this._user.value;
@@ -24,10 +25,11 @@ class LoginController extends GetxController {
   
   //onChanged
   onChangeEmail(value) {
+    print('onchange');
     if (isEmail(value)) {
-      this.isEmail = true;
+      this.isEmailCheck = true;
     } else
-      this.isEmail = false;
+      this.isEmailCheck = false;
   }
 
   //onSaved
@@ -54,7 +56,6 @@ class LoginController extends GetxController {
   }
 
   showPassword() {
-    print('show pass');
     if (this.obscure) {
       this.obscure = false;
     } else

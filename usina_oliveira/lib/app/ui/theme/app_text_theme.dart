@@ -19,5 +19,5 @@ final hintText = TextStyle(
   fontSize: 16
 );
 final formText = TextStyle(
-
+  fontSize: 18
 );
