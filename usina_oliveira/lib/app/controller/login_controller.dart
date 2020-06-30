@@ -46,15 +46,12 @@ class LoginController extends GetxController {
       this.isEmailCheck = false;
   }
 
-  //onSaved
-  onSavedEmail(value) {
-    this.user.email = value;
-  }
-
   onSavedPassword(value) {
     this.user.senha = value;
   }
-
+  onSavedEmail(value) {
+    this.user.email = value;
+  }
   emailValidate(value) {
     if (isEmail(value)) {
       return null;
@@ -63,7 +60,7 @@ class LoginController extends GetxController {
   }
 
   passwordValidate(value) {
-    if (isEmail(value)) {
+    if (value.length > 5) {
       return null;
     } else
       return 'Insira uma senha válida';

@@ -4,6 +4,7 @@ import 'package:usina_oliveira/app/controller/login_controller.dart';
 import 'package:usina_oliveira/app/data/provider/api_client.dart';
 import 'package:usina_oliveira/app/data/repository/user_repository.dart';
 import 'package:usina_oliveira/app/ui/android/widgets/button_custom_widget.dart';
+import 'package:usina_oliveira/app/ui/android/widgets/text_form_field_widget.dart';
 import 'package:usina_oliveira/app/ui/theme/app_text_theme.dart';
 import 'package:http/http.dart' as http;
 import 'package:validators/validators.dart';
@@ -46,52 +47,36 @@ class LoginPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          TextFormField(
-                            style: TextStyle(fontSize: 18),
-                            keyboardType: TextInputType.emailAddress,
-                            cursorColor: Colors.green,
-                            decoration: InputDecoration(
-                                //contentPadding: EdgeInsets.only(top: 5),
-                                border: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.grey)),
-                                labelText: 'Email',
-                                suffixIcon: Icon(
-                                  Icons.check_circle,
-                                  color: _.isEmailCheck
-                                      ? Colors.green
-                                      : Colors.grey,
-                                )),
+                          CustomTextFormField(
+                            type: TextInputType.emailAddress,
+                            text: 'Email',
                             onChanged: (value) => _.onChangeEmail(value),
                             onSaved: (value) => _.onSavedEmail(value),
                             validator: (value) => _.emailValidate(value),
-                            textInputAction: TextInputAction.next,
+                            action: TextInputAction.next,
+                            sufixIcon: Icon(
+                              Icons.check_circle,
+                              color:
+                                  _.isEmailCheck ? Colors.green : Colors.grey,
+                            ),
                           ),
                           SizedBox(
                             height: 10,
                           ),
-                          TextFormField(
-                            style: TextStyle(fontSize: 18),
-                            enableSuggestions: true,
-                            keyboardType: TextInputType.text,
-                            obscureText: _.obscure,
-                            cursorColor: Colors.green,
-                            decoration: InputDecoration(
-                                //contentPadding: EdgeInsets.only(top: 5),
-                                border: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.grey)),
-                                labelText: 'Senha',
-                                suffixIcon: GestureDetector(
-                                  onLongPress: () => _.showPassword(),
-                                  onLongPressEnd: (details) => _.showPassword(),
-                                  child: Icon(
-                                    Icons.remove_red_eye,
-                                  ),
-                                )),
-                            onSaved: (value) {
-                              _.user.senha = value;
-                            },
+                          CustomTextFormField(
+                            obscure: _.obscure,
+                            type: TextInputType.text,
+                            text: 'Senha',
+                            onSaved: (value) => _.onSavedPassword(value),
                             validator: (value) => _.passwordValidate(value),
-                            textInputAction: TextInputAction.done,
+                            action: TextInputAction.next,
+                            sufixIcon: GestureDetector(
+                              onLongPress: () => _.showPassword(),
+                              onLongPressEnd: (details) => _.showPassword(),
+                              child: Icon(
+                                Icons.remove_red_eye,
+                              ),
+                            ),
                           ),
                           Padding(
                             padding:
@@ -121,7 +106,7 @@ class LoginPage extends StatelessWidget {
                                 }
                               }),
                           Padding(
-                            padding: const EdgeInsets.only(top: 32.0),
+                            padding: const EdgeInsets.only(top: 40.0),
                             child: Align(
                               alignment: Alignment.center,
                               child: GestureDetector(
