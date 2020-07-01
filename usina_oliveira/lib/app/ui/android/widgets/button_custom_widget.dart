@@ -10,7 +10,7 @@ class CustomButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width / 0.5,
-      height: MediaQuery.of(context).size.height / 16,
+      height: 60,
       child: RaisedButton(
         autofocus: false,
         shape: RoundedRectangleBorder(

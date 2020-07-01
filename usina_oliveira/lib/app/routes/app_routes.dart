@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:usina_oliveira/app/ui/android/avaliacao_servico/avaliacao_servico_page.dart';
 import 'package:usina_oliveira/app/ui/android/cadastro/adicionar_cartao/adicionar_cartao_page.dart';
 import 'package:usina_oliveira/app/ui/android/cadastro/cadastro_page/cadastro_page.dart';
-import 'package:usina_oliveira/app/ui/android/confirmacao_pagamento/confirmacao_pagamento.dart';
+import 'package:usina_oliveira/app/ui/android/cadastro/confirmacao_pagamento/confirmacao_pagamento.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/agendar_contratacao/agendar_contratacao_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/cadastro_e_demanda_servicos/cadastro_demanda_servicos_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/editar_perfil/editar_perfil_empresa_page.dart';

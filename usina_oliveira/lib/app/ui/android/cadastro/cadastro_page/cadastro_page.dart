@@ -130,7 +130,7 @@ class CadastroPage extends StatelessWidget {
                                         onTap: () => Get.back(),
                                         child: Text(
                                           'Já tem uma conta?',
-                                          style: TextStyle(color: Colors.greenAccent),
+                                          style: destaqueText,
                                         ),
                                       ),
                                     ),

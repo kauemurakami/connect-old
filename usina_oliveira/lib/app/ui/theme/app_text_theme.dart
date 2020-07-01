@@ -21,3 +21,6 @@ final hintText = TextStyle(
 final formText = TextStyle(
   fontSize: 18
 );
+final destaqueText = TextStyle(
+  color: Color(0xff04B431),
+);
