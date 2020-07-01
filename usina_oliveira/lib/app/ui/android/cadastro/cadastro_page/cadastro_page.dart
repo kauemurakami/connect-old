@@ -115,9 +115,10 @@ class CadastroPage extends StatelessWidget {
                                         if (form.validate()) {
                                           form.save();
                                           //_.cadastrar
-                                          Get.offAllNamed('/');
+                                          //Get.offAllNamed('/');
                                         } else {
                                           //snackbar
+                                          Get.toNamed('add-cartao');
                                           print('erro ao entrar');
                                         }
                                       }),

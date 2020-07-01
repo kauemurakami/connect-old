@@ -11,6 +11,8 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType type;
   final bool obscure;
   final TextEditingController controller;
+  final TextDirection direction;
+  final int max;
 
   CustomTextFormField(
       {this.emailCheck,
@@ -22,14 +24,19 @@ class CustomTextFormField extends StatelessWidget {
       this.action,
       this.type,
       this.obscure = false,
-      this.controller});
+      this.controller,
+      this.direction = TextDirection.ltr,
+      this.max,
+      });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: this.max,
+      textDirection: this.direction,
       controller: this.controller,
       obscureText: this.obscure,
-      style: TextStyle(fontSize: 18),
+      style: TextStyle(fontSize: 20),
       keyboardType: this.type,
       cursorColor: Colors.green,
       decoration: InputDecoration(

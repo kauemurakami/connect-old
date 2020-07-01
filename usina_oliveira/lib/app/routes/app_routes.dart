@@ -28,7 +28,7 @@ class MyRoutes {
     GetPage(name: '/prestador-home', page:()=> PrestadorHomePage()),
     GetPage(name: '/empresa-home', page:()=> EmpresaHomePage()),
     GetPage(name: '/cadastro', page:()=> CadastroPage()),
-    GetPage(name: '/adicionar-cartao', page:()=> AdicionarCartaoPage()),
+    GetPage(name: '/add-cartao', page:()=> AdicionarCartaoPage()),
     GetPage(name: '/confirmacao-pagamento', page:()=> ConfirmacaoPagamentoPage()),
     GetPage(name: '/servicos-cadastrados', page:()=> ServicosCadastradosPage()),
     GetPage(name: '/pagamento', page:()=> PagamentoPage()),
