@@ -19,126 +19,127 @@ class AdicionarCartaoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  IconButtonBackWidget(),
-                  Text(
-                    'Adicionar cartão',
-                    style: titulo,
-                  ),
-                ],
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 16),
-                width: MediaQuery.of(context).size.width,
-                child: GetX<AddCartaoController>(
-                    init: AddCartaoController(repository: this.repository),
-                    builder: (_) {
-                      print(_.cartao.numero);
-                      return Container(
-                          child: CreditCardWidget(
-                              cardNumber: _.cartao.numero,
-                              expiryDate: _.cartao.validade,
-                              cardHolderName: _.cartao.nome,
-                              cvvCode: _.cartao.codigo,
-                              showBackView: _.showBack));
-                    }),
-              ),
-              Container(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      GetX<AddCartaoController>(builder: (_) {
-                        return Form(
-                          key: _formKey,
-                          child: Padding(
-                            padding: const EdgeInsets.all(24.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                CustomTextFormField(
-                                  type: TextInputType.text,
-                                  direction: TextDirection.rtl,
-                                  onChanged: (value) => _.onChangeNome(value),
-                                  onSaved: (value) => _.onSavedName(value),
-                                  validator: (value) => _.nameValidate(value),
-                                  action: TextInputAction.next,
-                                  text: 'Nome',
-                                ),
-                                CustomTextFormField(
-                                  max: 16,
-                                  type: TextInputType.number,
-                                  direction: TextDirection.rtl,
-                                  onChanged: (value) => _.onChangeNumero(value),
-                                  onSaved: (value) => _.onSavedNumero(value),
-                                  validator: (value) => _.validateNumero(value),
-                                  action: TextInputAction.next,
-                                  text: 'Número do cartão',
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width:
-                                          MediaQuery.of(context).size.width / 3,
-                                      child: CustomTextFormField(
-                                        max: 5,
-                                        type: TextInputType.datetime,
-                                        direction: TextDirection.rtl,
-                                        onChanged: (value) =>
-                                            _.onChangeValidade(value),
-                                        onSaved: (value) =>
-                                            _.onSavedValidade(value),
-                                        validator: (value) =>
-                                            _.validateValidade(value),
-                                        action: TextInputAction.next,
-                                        text: 'Validade',
+              child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    IconButtonBackWidget(),
+                    Text(
+                      'Adicionar cartão',
+                      style: titulo,
+                    ),
+                  ],
+                ),
+                
+                Container(
+                  padding: EdgeInsets.only(top: 16),
+                  width: MediaQuery.of(context).size.width,
+                  child: GetX<AddCartaoController>(
+                      init: AddCartaoController(repository: this.repository),
+                      builder: (_) {
+                        print(_.cartao.numero);
+                        return Container(
+                            child: CreditCardWidget(
+                                cardNumber: _.cartao.numero,
+                                expiryDate: _.cartao.validade,
+                                cardHolderName: _.cartao.nome,
+                                cvvCode: _.cartao.codigo,
+                                showBackView: _.showBack));
+                      }),
+                ),
+                Container(
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        GetX<AddCartaoController>(builder: (_) {
+                          return Form(
+                            key: _formKey,
+                            child: Padding(
+                              padding: const EdgeInsets.all(24.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  CustomTextFormField(
+                                    type: TextInputType.text,
+                                    direction: TextDirection.rtl,
+                                    onChanged: (value) => _.onChangeNome(value),
+                                    onSaved: (value) => _.onSavedName(value),
+                                    validator: (value) => _.nameValidate(value),
+                                    action: TextInputAction.next,
+                                    text: 'Nome',
+                                  ),
+                                  CustomTextFormField(
+                                    max: 16,
+                                    type: TextInputType.number,
+                                    direction: TextDirection.rtl,
+                                    onChanged: (value) => _.onChangeNumero(value),
+                                    onSaved: (value) => _.onSavedNumero(value),
+                                    validator: (value) => _.validateNumero(value),
+                                    action: TextInputAction.next,
+                                    text: 'Número do cartão',
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: <Widget>[
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width / 3,
+                                        child: CustomTextFormField(
+                                          max: 5,
+                                          type: TextInputType.datetime,
+                                          direction: TextDirection.rtl,
+                                          onChanged: (value) =>
+                                              _.onChangeValidade(value),
+                                          onSaved: (value) =>
+                                              _.onSavedValidade(value),
+                                          validator: (value) =>
+                                              _.validateValidade(value),
+                                          action: TextInputAction.next,
+                                          text: 'Validade',
+                                        ),
                                       ),
-                                    ),
-                                    Container(
-                                      width:
-                                          MediaQuery.of(context).size.width / 3,
-                                      child: FocusScope(
-                                        child: Focus(
-                                          onFocusChange: (value) =>
-                                              _.showBackCodigo(),
-                                          child: CustomTextFormField(
-                                            type: TextInputType.number,
-                                            direction: TextDirection.rtl,
-                                            onChanged: (value) =>
-                                                _.onChangeCodigo(value),
-                                            onSaved: (value) =>
-                                                _.onSavedCodigo(value),
-                                            validator: (value) =>
-                                                _.validateCodigo(value),
-                                            action: TextInputAction.next,
-                                            text: 'Código',
-                                            max: 3,
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width / 3,
+                                        child: FocusScope(
+                                          child: Focus(
+                                            onFocusChange: (value) =>
+                                                _.showBackCodigo(),
+                                            child: CustomTextFormField(
+                                              type: TextInputType.number,
+                                              direction: TextDirection.rtl,
+                                              onChanged: (value) =>
+                                                  _.onChangeCodigo(value),
+                                              onSaved: (value) =>
+                                                  _.onSavedCodigo(value),
+                                              validator: (value) =>
+                                                  _.validateCodigo(value),
+                                              action: TextInputAction.next,
+                                              text: 'Código',
+                                              max: 3,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 48,
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 48,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      }),
-                    ]),
-              ),
-            ],
+                          );
+                        }),
+                      ]),
+                ),
+              ],
+            ),
           ),
-        ),
       ),
     );
   }
