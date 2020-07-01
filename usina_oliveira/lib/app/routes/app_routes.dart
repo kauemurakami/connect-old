@@ -8,7 +8,6 @@ import 'package:usina_oliveira/app/ui/android/empresa/cadastro_e_demanda_servico
 import 'package:usina_oliveira/app/ui/android/empresa/editar_perfil/editar_perfil_empresa_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/empresa_home/empresa_home_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/filtros/filtros_page.dart';
-import 'package:usina_oliveira/app/ui/android/empresa/perfil_empresa/perfil_empresa_page.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/pesquisar_prestador/pesquisar_prestador_page.dart';
 import 'package:usina_oliveira/app/ui/android/login/login_page.dart';
 import 'package:usina_oliveira/app/ui/android/notificacoes/notificacoes_page.dart';
@@ -38,7 +37,6 @@ class MyRoutes {
     GetPage(name: '/agendar-contratacao', page:()=> AgendarContratacaoPage()),
     GetPage(name: '/pesquisar-prestador', page:()=> PesquisarPrestadorPage()),
     GetPage(name: '/filtros', page:()=> FiltrosPage()),
-    GetPage(name: '/perfil-empresa', page:()=> PerfilEmpresaPage()),
     GetPage(name: '/editar-perfil-empresa', page:()=> EditarPerfilEmpresaPage()),
     GetPage(name: '/editar-perfil-prestador', page:()=> EditarPerfilPrestadorPage()),
     GetPage(name: '/cadastro-e-demandas', page:()=> CadastroDemandaServicosPage()),

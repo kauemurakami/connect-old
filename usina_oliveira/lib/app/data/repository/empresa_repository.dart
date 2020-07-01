@@ -1,7 +1,10 @@
 
-class EmpresaRepository {
-//final MyApiClient apiClient;
+import 'package:meta/meta.dart';
+import 'package:usina_oliveira/app/data/provider/api_client.dart';
 
-//EmpresaRepository({@required this.apiClient}) : assert(apiClient != null);
+class EmpresaRepository {
+final ApiClient apiClient;
+
+EmpresaRepository({@required this.apiClient}) : assert(apiClient != null);
 
 }

@@ -140,7 +140,7 @@ class AdicionarCartaoPage extends StatelessWidget {
                                 CustomButtonWidget(
                                     text: 'Cadastrar',
                                     callback: () {
-                                      Get.toNamed('confirmacao-pagamento');
+                                      Get.offNamed('confirmacao-pagamento');
                                       final FormState form =
                                           _formKey.currentState;
                                       if (form.validate()) {
