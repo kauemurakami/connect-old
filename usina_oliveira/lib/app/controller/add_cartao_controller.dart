@@ -15,7 +15,7 @@ class AddCartaoController extends GetxController {
   
   showBackCodigo() => this.showBack == false ? this.showBack = true : this.showBack = false;
 
-  onChangeNome(value){ this.cartao.nome = value; print(this.cartao.nome);}
+  onChangeNome(value) => this.cartao.nome = value;
   onSavedName(value) => this.cartao.nome = value;
   nameValidate(value) => value < 3 ? 'Insira um nome válido' : null;
 
@@ -29,6 +29,6 @@ class AddCartaoController extends GetxController {
 
   validateCodigo(value) => value < 3 ? 'Insirá um código válido' : null ;
   onSavedCodigo(value) => value < 3 ? null : this.cartao.codigo = value;
-  onChangeCodigo(value) => value != this.cartao.codigo ? this.cartao.codigo = value : null;
+  onChangeCodigo(value) {this.cartao.codigo = value; print(this.cartao.codigo);}
 
 }

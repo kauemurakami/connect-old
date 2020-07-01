@@ -7,7 +7,7 @@ import 'package:usina_oliveira/app/ui/android/widgets/icon_button_back_widget.da
 import 'package:usina_oliveira/app/ui/android/widgets/text_form_field_widget.dart';
 import 'package:usina_oliveira/app/ui/theme/app_text_theme.dart';
 import 'package:http/http.dart' as http;
-import 'package:awesome_card/awesome_card.dart';
+import 'package:credit_card_detector/credit_card_detector.dart';
 
 class AdicionarCartaoPage extends StatelessWidget {
 //repository injection
@@ -40,20 +40,12 @@ class AdicionarCartaoPage extends StatelessWidget {
                     builder: (_) {
                       print(_.cartao.numero);
                       return Container(
-                        child: CreditCard(
-                          cardNumber: _.cartao.numero == null ? 'XXXX-XXXX-XXXX-XXX' : _.cartao.numero,
-                          cardExpiry: '10/20' ?? _.cartao.validade,
-                          cardHolderName: 'MARIA JOSE OLIVEIRA' ?? _.cartao.nome,
-                          cvv: 'xxx' ?? _.cartao.codigo,
-                          bankName: 'Banco' ?? _.cartao.banco,
-                          cardType: CardType
-                              .other, // Optional if you want to override Card Type
-                          showBackSide: _.showBack,
-                          frontBackground: CardBackgrounds.black,
-                          backBackground: CardBackgrounds.white,
-                          showShadow: true,
-                        ),
-                      );
+                          child: CreditCardWidget(
+                              cardNumber: _.cartao.numero,
+                              expiryDate: _.cartao.validade,
+                              cardHolderName: _.cartao.nome,
+                              cvvCode: _.cartao.codigo,
+                              showBackView: _.showBack));
                     }),
               ),
               Container(

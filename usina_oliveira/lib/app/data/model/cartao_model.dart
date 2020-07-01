@@ -2,12 +2,11 @@ import 'package:get/get.dart';
 
 class RxCartaoModel {
 
-  final numero = ''.obs;
+  final numero = 'XXXXXXXXXXXX'.obs;
   final banco = 'Banco'.obs;
   final nome = 'MARIA JOSE DA SILVA'.obs;
   final validade = '10/20'.obs;
   final codigo = 'xxx'.obs;
-
 }
 
 class CartaoModel{
@@ -29,7 +28,7 @@ class CartaoModel{
   set validade(value) => rx.validade.value = value;
 
   get codigo => rx.codigo.value;
-  set codigo(value) => rx.validade.value = value;
+  set codigo(value) => rx.codigo.value = value;
 
   CartaoModel.fromJson(Map<String, dynamic> json){
       this.numero = json['numero'];

@@ -59,12 +59,7 @@ class LoginController extends GetxController {
       return 'Insira um email válido';
   }
 
-  passwordValidate(value) {
-    if (value.length > 5) {
-      return null;
-    } else
-      return 'Insira uma senha válida';
-  }
+  passwordValidate(value) => value.length < 5 ? null : 'Insira uma senha válida';
 
   showPassword() {
     if (this.obscure) {
