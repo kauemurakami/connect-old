@@ -5,6 +5,7 @@ import 'package:usina_oliveira/app/data/provider/api_client.dart';
 import 'package:usina_oliveira/app/data/repository/empresa_repository.dart';
 import 'package:http/http.dart' as http;
 import 'package:usina_oliveira/app/ui/android/widgets/appbar_widget.dart';
+import 'package:usina_oliveira/app/ui/android/widgets/button_custom_widget.dart';
 import 'package:usina_oliveira/app/ui/android/widgets/small_button_widget.dart';
 import 'package:usina_oliveira/app/ui/theme/app_text_theme.dart';
 
@@ -48,19 +49,21 @@ class PesquisarScreen extends StatelessWidget {
             init: PesquisarController(repository: this.repository),
             builder: (_) {
               return Container(
-                  height: MediaQuery.of(context).size.height / 20,
+                  height: 40,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(4.0),
-                        child: CustomSmallButtonWidget(
-                          text: _.categorias[index],
+                        child: Obx( ()=> CustomSmallButtonWidget(
+                          text: _.filtros[index],
                           index: index,
-                        ),
+                          item: _.selectedItem,
+                          callback: () => _.selectItem(index),
+                        )),
                       );
                     },
-                    itemCount: _.categorias.length,
+                    itemCount: _.filtros.length,
                   ));
             },
           ),
@@ -68,7 +71,7 @@ class PesquisarScreen extends StatelessWidget {
             height: 10,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 16.0, top: 16.0),
+            padding: const EdgeInsets.only(left: 16.0, top: 8.0),
             child: GetX<PesquisarController>(builder: (_) {
               return Row(
                 children: <Widget>[
@@ -79,24 +82,71 @@ class PesquisarScreen extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  Text(
-                    _.distancia.toStringAsFixed(0) + 'km',
-                    style: TextStyle(color: Colors.grey),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4.0),
+                    child: Text(
+                      _.distancia.toStringAsFixed(0) + 'km',
+                      style: TextStyle(color: Colors.grey),
+                    ),
                   )
                 ],
               );
             }),
           ),
           GetX<PesquisarController>(builder: (_) {
-            return 
-                Slider(
-                  min: 1,
-                  max: 80,
-                  value: _.distancia,
-                  label: "$_.distancia",
-                  onChanged: (value) => _.changeDistancia(value),
-                );
+            return Slider(
+              min: 0,
+              divisions: 8,
+              max: 80,
+              value: _.distancia,
+              label: _.distancia.toStringAsFixed(0) + ' km',
+              onChanged: (value) => _.changeDistancia(value),
+            );
           }),
+          Padding(
+              padding: EdgeInsets.only(left: 16, bottom: 16),
+              child: Text(
+                'Categorias',
+                style: subtitulo,
+              )),
+          GetX<PesquisarController>(builder: (_) {
+            //var select = _.selectedCategoria;
+            return Container(
+              height: 40,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Obx( () => CustomSmallButtonWidget(
+                      text: _.categorias[index],
+                      index: index,
+                      item: _.selectedCategoria,
+                      callback: () => _.selectCategoria(index),
+                    )),
+                  );
+                },
+                itemCount: _.categorias.length,
+              ),
+            );
+          }),
+
+          //lista de prestadores ????
+          SizedBox(height: MediaQuery.of(context).size.height / 3),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: 200,
+                child: GetX<PesquisarController>(
+                  builder: (_) {
+                    return CustomButtonWidget(
+                        text: 'Pesquisar', callback: _.pesquisar);
+                  },
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
