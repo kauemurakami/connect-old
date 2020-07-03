@@ -1,3 +1,5 @@
+import 'package:usina_oliveira/app/data/model/servico_model.dart';
+
 class PrestadorModel {
   
   int id;
@@ -6,9 +8,10 @@ class PrestadorModel {
   String endereco;
   String cnpj;
   String ramo;
+  List<ServicoModel> servicos;
 
   PrestadorModel(
-      {this.id, this.nome, this.telefone, this.cnpj, this.endereco, this.ramo});
+      {this.id, this.nome, this.telefone, this.cnpj, this.endereco, this.ramo, this.servicos});
 
   PrestadorModel.fromJson(Map<String, dynamic> json) {
     this.id = json['id'];
@@ -17,6 +20,7 @@ class PrestadorModel {
     this.cnpj = json['cnpj'];
     this.endereco = json['endereco'];
     this.ramo = json['ramo'];
+    this.servicos = json['servicos'];
   }
 
   Map<String, dynamic> toJson() {
@@ -27,6 +31,7 @@ class PrestadorModel {
     data['cnpj'] = this.cnpj;
     data['endereco'] = this.endereco;
     data['ramo'] = this.ramo;
+    data['servicos'] = this.servicos;
     return data;
   }
 }
