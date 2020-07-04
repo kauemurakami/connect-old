@@ -4,7 +4,9 @@ class ServicoModel {
   String nome;
   int id;
 
-  ServicoModel({id, nome});
+  ServicoModel({this.id, this.nome});
+
+  
 
   ServicoModel.fromJson(Map<String, dynamic> json){
       this.id = json['id'];

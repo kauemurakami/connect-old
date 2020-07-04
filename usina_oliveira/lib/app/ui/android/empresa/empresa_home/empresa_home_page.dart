@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:usina_oliveira/app/controller/empresa/empresa_home_controller.dart';
+import 'package:usina_oliveira/app/controller/empresa/empresa_controller.dart';
 import 'package:usina_oliveira/app/data/provider/api_client.dart';
 import 'package:usina_oliveira/app/data/repository/empresa_repository.dart';
 import 'package:usina_oliveira/app/ui/android/empresa/empresa_home/telas/cadastro_servico_screen.dart';

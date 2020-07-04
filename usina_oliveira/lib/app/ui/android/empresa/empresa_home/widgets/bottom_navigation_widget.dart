@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:usina_oliveira/app/controller/empresa/empresa_home_controller.dart';
+import 'package:usina_oliveira/app/controller/empresa/empresa_controller.dart';
 
 class CustomBottomNavigation extends StatelessWidget {
 
